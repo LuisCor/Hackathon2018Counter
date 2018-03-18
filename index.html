@@ -171,9 +171,11 @@ function startCountDown(){
     document.getElementById("startbutton").style.display = 'none';
 
     var nowTime = new Date();
-    var startTime = new Date(2018, 03, 17, 14, 05, 54, 00);
+    var startTime = new Date(2018, 02, 17, 13, 05, 54, 00);
+    console.log(startTime);
 
     countDownDate = new Date(startTime.getTime() + 1440 * 60000);
+    console.log(countDownDate);
     console.log("StartTime = " + nowTime);
     localStorage.setItem("startDate", JSON.stringify(nowTime));
 
@@ -193,6 +195,7 @@ function countDown(){
     // Find the distance between now an the count down date
     var distance = countDownDate - now;
 
+
     // Time calculations for days, hours, minutes and seconds
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -204,6 +207,8 @@ function countDown(){
     // Display the result in the element with id="demo"
     document.getElementById("countdown").innerHTML = hours + ":"
     + minutes + ":" + seconds;
+
+console.log(distance);
 
     // If the count down is finished, write some text 
     if (distance < 0) {
